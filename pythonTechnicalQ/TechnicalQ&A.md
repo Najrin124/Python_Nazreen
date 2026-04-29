@@ -1,10 +1,10 @@
-#variables - use to store the data
+# variables - use to store the data
 
-# # data types
-# v_str = "najrin"
-# v_int = 5
-# v_float = 9.0
-# v_bool = True
+# data types
+v_str = "najrin"
+v_int = 5
+v_float = 9.0
+v_bool = True
 
 # print(v_str + " " + str(v_int) + " "+ str(v_bool))
 # print(f"{v_str} {v_int} and {v_bool}") # formated string
@@ -16,9 +16,9 @@
 
 
 # Key points you can mention:
-# Ordered → Elements have a fixed position
-# Immutable → Cannot modify, add, or remove elements after creation
-# Allows duplicates → (1, 1, 2) is valid
-# Supports indexing → t[0] gives first element
+  Ordered → Elements have a fixed position
+  Immutable → Cannot modify, add, or remove elements after creation
+  Allows duplicates → (1, 1, 2) is valid
+  Supports indexing → t[0] gives first element
 
 
