@@ -1,18 +1,18 @@
 --- # variables - use to store the data
 
-# data types
+-- # data types
 v_str = "najrin"
 v_int = 5
 v_float = 9.0
 v_bool = True
 
-# print(v_str + " " + str(v_int) + " "+ str(v_bool))
-# print(f"{v_str} {v_int} and {v_bool}") # formated string
+-- # print(v_str + " " + str(v_int) + " "+ str(v_bool))
+-- # print(f"{v_str} {v_int} and {v_bool}") # formated string
 
 
-# list variable - it is ordered set where you can store multiple  data types values
+-- # list variable - it is ordered set where you can store multiple  data types values
 
-# Tuple - A tuple in Python is an ordered, immutable collection of elements. It can store multiple items of different data types, and once created, its values cannot be changed.
+-- # Tuple - A tuple in Python is an ordered, immutable collection of elements. It can store multiple items of different data types, and once created, its values cannot be changed.
 
 
 # Key points you can mention:
@@ -22,10 +22,10 @@ v_bool = True
   Supports indexing → t[0] gives first element
 
 
-# # dictionary - it stores dta in key value pairs
+--- # # dictionary - it stores dta in key value pairs
 
-# dic_1 = {"name": "najrin", "age": 26, "location": "kolkata"}
-# print(dic_1)
+-- # dic_1 = {"name": "najrin", "age": 26, "location": "kolkata"}
+-- # print(dic_1)
 # print(dic_1["age"])
 # print(dic_1.keys())
 # print(dic_1.values())
