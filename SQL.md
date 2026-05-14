@@ -136,6 +136,43 @@ Opposite is ASC (Ascending – lowest to highest).
 Marks the end of the SQL statement.
 Required in many SQL tools.
 
+## . CHAR vs VARCHAR
+| CHAR                  | VARCHAR         |
+| --------------------- | --------------- |
+| Fixed length          | Variable length |
+| Pads spaces           | No padding      |
+| Faster for fixed size | Saves storage   |
+
+
+
+select * from customers where email is null;
+select * from customers where email is not null;
+
+--- select 10 + null; ---
+
+| WHERE                          | HAVING                      |
+| ------------------------------ | --------------------------- |
+| Filters rows before grouping   | Filters after GROUP BY      |
+| Cannot use aggregate functions | Can use aggregate functions |
+| Used with SELECT               | Used with GROUP BY          |
+
+
+| IN                     | EXISTS                   |
+| ---------------------- | ------------------------ |
+| Compares values        | Checks existence         |
+| Good for small dataset | Better for large dataset |
+
+--- For large datasets → EXISTS performs better.--------
+
+ | Technique                | Example               |
+| ------------------------ | --------------------- |
+| Index on WHERE column    | salary                |
+| Index on JOIN column     | dept_id               |
+| Composite index          | (salary, dept_id)     |
+| Avoid functions in WHERE | YEAR(hire_date)       |
+| Use EXPLAIN              | Check query plan      |
+| Use covering index       | Only required columns |
+
 
 
 
