@@ -179,6 +179,233 @@ select * from customers where email is not null;
 
 
 
+select * from employees;
+select emp_name, salary from employees;
+select * from employees where salary > 50000;
+select * from employees where emp_name like 'A%';
+select * from employees where emp_name like '%n';
+select * from employees where emp_name like '%ar%';
+select * from employees order by salary desc; 
+select * from employees order by salary desc limit 5;
+select distinct dept_id from employees;
+
+select * from customers where email is null;
+select * from customers where email is not null;
+select 10 + null;  
+
+select emp_id, emp_name, 
+ifnull(salary, 0) as salary from employees;
+
+select emp_name, count(*) from employees group by emp_name having count(*) > 1; 
+select count(distinct dept_id) from employees;
+
+SELECT * FROM customers c
+WHERE EXISTS (
+    SELECT 1 FROM orders o
+    WHERE o.customer_id = c.customer_id
+); 
+
+select sum(salary) from employees;
+SELECT dept_id, AVG(salary)
+FROM employee
+GROUP BY dept_id;
+
+select max(salary) from employees;
+select max(salary) from employees where salary < (select max(salary) from employees);
+select  salary from employees order by salary desc limit 1 offset 2;                                                                                                                                            
+
+
+select * from employees;
+select * from departments;
+
+SELECT e.emp_name, e.salary, d.dept_name
+FROM employees e
+JOIN departments d ON e.dept_id = d.dept_id
+WHERE e.salary > 50000;
+
+EXPLAIN SELECT e.emp_name, e.salary, d.dept_name
+FROM employees e
+JOIN departments d ON e.dept_id = d.dept_id
+WHERE e.salary > 40000;
+
+CREATE INDEX idx_salary ON employees(salary);
+
+CREATE INDEX idx_dept_id ON employees(dept_id);
+
+EXPLAIN SELECT e.emp_name, e.salary, d.dept_name
+FROM employees e
+JOIN departments d ON e.dept_id = d.dept_id
+WHERE e.salary > 40000;
+
+-- composite index
+
+CREATE INDEX idx_salary_dept ON employees(salary, dept_id);
+
+CREATE INDEX idx_covering ON employees(salary, emp_name);
+
+EXPLAIN SELECT emp_name, salary
+FROM employees
+WHERE salary > 40000;
+
+SHOW INDEX FROM employees;
+
+START TRANSACTION;
+
+UPDATE employees
+SET salary = salary - 5000
+WHERE emp_id = 1;
+
+UPDATE employees
+SET salary = salary + 5000
+WHERE emp_id = 2;
+
+COMMIT;
+
+START TRANSACTION;
+
+UPDATE employees
+SET salary = salary - 100000
+WHERE emp_id = 1;
+
+ROLLBACK;
+
+START TRANSACTION;
+
+UPDATE employees SET salary = 90000 WHERE emp_id = 1;
+
+SAVEPOINT before_second_update;
+
+UPDATE employees SET salary = 100000 WHERE emp_id = 2;
+
+ROLLBACK TO before_second_update;
+
+COMMIT;
+select * from departments;
+
+INSERT INTO departments (dept_id,dept_name,Location)
+VALUES
+(29, 'Operations', 'Pune'),
+(30, 'Customer Support', 'Hyderabad');
+ALTER TABLE departments
+ADD  Location VARCHAR(50);
+
+---#
+1️⃣ Create Tables
+CREATE TABLE departments (
+    dept_id INT PRIMARY KEY AUTO_INCREMENT,
+    dept_name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY AUTO_INCREMENT,
+    emp_name VARCHAR(100),
+    salary DECIMAL(10,2),
+    dept_id INT,
+    hire_date DATE,
+    FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
+);
+
+-- # 2️⃣ Insert Sample Data
+INSERT INTO departments (dept_name) VALUES
+('HR'),
+('IT'),
+('Finance'),
+('Sales');
+
+INSERT INTO employees (emp_name, salary, dept_id, hire_date) VALUES
+('John', 50000, 1, '2020-01-15'),
+('Sarah', 75000, 2, '2019-03-20'),
+('Mike', 60000, 2, '2021-07-10'),
+('Anna', 45000, 1, '2022-02-01'),
+('David', 80000, 3, '2018-11-25'),
+('Robert', 70000, 4, '2020-06-30'),
+('Emily', 65000, 2, '2021-09-12');
+
+-- # 3️⃣ Slow Query (Without Index)
+SELECT e.emp_name, e.salary, d.dept_name
+FROM employees e
+JOIN departments d ON e.dept_id = d.dept_id
+WHERE e.salary > 60000;
+
+-- # 4️⃣ Add Indexes (Optimization)
+🔹 Index on salary (for WHERE clause)
+CREATE INDEX idx_salary ON employees(salary);
+🔹 Index on dept_id (for JOIN)
+CREATE INDEX idx_dept_id ON employees(dept_id);
+
+-- # 5️⃣ Check Performance Again
+EXPLAIN SELECT e.emp_name, e.salary, d.dept_name
+FROM employees e
+JOIN departments d ON e.dept_id = d.dept_id
+WHERE e.salary > 60000;
+
+👉 Now you should see:
+
+type = range (better than ALL)
+key = idx_salary
+
+That means index is being used ✅
+
+-- # 6️⃣ Composite Index (Advanced Optimization)
+
+If query frequently uses salary + dept_id:
+
+CREATE INDEX idx_salary_dept ON employees(salary, dept_id);
+
+--- # 7️⃣ Covering Index Example
+
+If query only needs emp_name & salary:
+
+CREATE INDEX idx_covering ON employees(salary, emp_name);
+
+Query:
+
+SELECT emp_name, salary
+FROM employees
+WHERE salary > 60000;
+
+👉 MySQL can use index only (faster).
+
+-- # ✅ 8️⃣ Avoid These (Bad Practices)
+
+❌ Avoid this (index not used):
+
+SELECT * FROM employees
+WHERE YEAR(hire_date) = 2021;
+
+✔ Better:
+
+CREATE INDEX idx_hire_date ON employees(hire_date);
+
+SELECT * FROM employees
+WHERE hire_date BETWEEN '2021-01-01' AND '2021-12-31';
+
+--- # 9️⃣ Force Index (Testing Only)
+SELECT * FROM employees FORCE INDEX (idx_salary)
+WHERE salary > 60000;
+
+-- # 🔟 Check Existing Indexes
+SHOW INDEX FROM employees;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
