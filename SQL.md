@@ -458,104 +458,26 @@ VALUES
 ALTER TABLE departments
 ADD  Location VARCHAR(50);
 
----#
-1️⃣ Create Tables
+# 1️⃣ Create Tables
+
+You created two tables:
+
+Departments Table
 CREATE TABLE departments (
     dept_id INT PRIMARY KEY AUTO_INCREMENT,
     dept_name VARCHAR(100) NOT NULL
 );
-
-CREATE TABLE employees (
-    emp_id INT PRIMARY KEY AUTO_INCREMENT,
-    emp_name VARCHAR(100),
-    salary DECIMAL(10,2),
-    dept_id INT,
-    hire_date DATE,
-    FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
-);
-
--- # 2️⃣ Insert Sample Data
-INSERT INTO departments (dept_name) VALUES
-('HR'),
-('IT'),
-('Finance'),
-('Sales');
-
-INSERT INTO employees (emp_name, salary, dept_id, hire_date) VALUES
-('John', 50000, 1, '2020-01-15'),
-('Sarah', 75000, 2, '2019-03-20'),
-('Mike', 60000, 2, '2021-07-10'),
-('Anna', 45000, 1, '2022-02-01'),
-('David', 80000, 3, '2018-11-25'),
-('Robert', 70000, 4, '2020-06-30'),
-('Emily', 65000, 2, '2021-09-12');
-
--- # 3️⃣ Slow Query (Without Index)
-SELECT e.emp_name, e.salary, d.dept_name
-FROM employees e
-JOIN departments d ON e.dept_id = d.dept_id
-WHERE e.salary > 60000;
-
--- # 4️⃣ Add Indexes (Optimization)
-🔹 Index on salary (for WHERE clause)
-CREATE INDEX idx_salary ON employees(salary);
-🔹 Index on dept_id (for JOIN)
-CREATE INDEX idx_dept_id ON employees(dept_id);
-
--- # 5️⃣ Check Performance Again
-EXPLAIN SELECT e.emp_name, e.salary, d.dept_name
-FROM employees e
-JOIN departments d ON e.dept_id = d.dept_id
-WHERE e.salary > 60000;
-
-👉 Now you should see:
-
-type = range (better than ALL)
-key = idx_salary
-
-That means index is being used ✅
-
--- # 6️⃣ Composite Index (Advanced Optimization)
-
-If query frequently uses salary + dept_id:
-
-CREATE INDEX idx_salary_dept ON employees(salary, dept_id);
-
---- # 7️⃣ Covering Index Example
-
-If query only needs emp_name & salary:
-
-CREATE INDEX idx_covering ON employees(salary, emp_name);
-
-Query:
-
-SELECT emp_name, salary
-FROM employees
-WHERE salary > 60000;
-
-👉 MySQL can use index only (faster).
-
--- # ✅ 8️⃣ Avoid These (Bad Practices)
-
-❌ Avoid this (index not used):
-
-SELECT * FROM employees
-WHERE YEAR(hire_date) = 2021;
-
-✔ Better:
-
-CREATE INDEX idx_hire_date ON employees(hire_date);
-
-SELECT * FROM employees
-WHERE hire_date BETWEEN '2021-01-01' AND '2021-12-31';
-
---- # 9️⃣ Force Index (Testing Only)
-SELECT * FROM employees FORCE INDEX (idx_salary)
-WHERE salary > 60000;
-
--- # 🔟 Check Existing Indexes
-SHOW INDEX FROM employees;
-
+# Important Interview Concepts
+| Concept         | Meaning                          |
+| --------------- | -------------------------------- |
+| Primary Key     | Unique row identifier            |
+| Foreign Key     | Connects tables                  |
+| Index           | Speeds up searching              |
+| Composite Index | Multiple columns indexed         |
+| Covering Index  | Query satisfied using only index |
+| EXPLAIN         | Shows query execution plan       |
+| Full Table Scan | Scans all rows                   |
+| Range Scan      | Efficient indexed search         |
 
 
 
