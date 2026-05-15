@@ -311,6 +311,205 @@ short_delta = timedelta(seconds=3600, minutes=30)
 print(f"Short delta: {short_delta}")  # Output: 1:30:00 ---
 
 
+# lets cover oops concepts in python
+# oops means object oriented programming system - meaning in layman is to represent real world entities using classes and objects
+
+# concepts of oops
+# 1. class - blueprint of object
+# 2. object - instance of class
+# 3. inheritance - acquiring properties of parent class to child class
+# 4. polymorphism - ability to take many forms, meaning one class can have multiple methods with same name but different parameters
+# 5. encapsulation - wrapping data and methods into single unit, meaning restricting access to some components
+# 6. abstraction - hiding complex implementation details and showing only essential features
+# 7. method - function defined inside class
+# 8. constructor - special method to initialize object  
+# 9. destructor - special method to destroy object and free memory
+# 10. attributes - variables defined inside class
+# 11. self - represents instance of class
+# 12. static method - method that belongs to class rather than
+# 13. class method - method that takes class as first argument
+# 14. instance method - method that takes instance as first argument
+# 15. operator overloading - ability to define custom behavior for operators
+# 16. method overloading - ability to define multiple methods with same name but different parameters
+# 17. method overriding - ability to redefine method in child class
+# 18. multiple inheritance - acquiring properties from multiple parent classes
+# 19. multilevel inheritance - acquiring properties from parent class to child class and then to grandchild class
+# 20. hierarchical inheritance - multiple child classes inheriting from single parent class
+# 21. composition - building complex objects using simpler objects
+# 22. aggregation - special form of composition where child can exist independently of parent
+# 23. namespace - container that holds a set of identifiers and their corresponding objects
+# 24. module - file containing python code
+# 25. package - collection of modules
+# 26. exception handling - mechanism to handle runtime errors
+
+
+# lets do practical implementation of oops concepts in python
+
+# example of class and object
+
+# class Person:
+#     def __init__(self, name, age):
+#         self.name = name # instance variable
+#         self.age = age
+
+#     def greet(self):
+#         return f"Hello, my name is {self.name} and I am {self.age} years old."
+    
+# person1 = Person("Alice", 30)
+# print(person1.greet())
+# person2 = Person("Bob", 25)
+# print(person2.greet())
+
+# inheritance example
+
+# class Animal:
+#     def __init__(self, name):
+#         self.name = name
+
+#     def speak(self):
+#         return "Animal sound"
+    
+# class Dog(Animal):
+#     def speak(self):
+#         return "Woof!"
+# class Cat(Animal):
+#     def speak(self):
+#         return "Meow!"
+    
+# dog = Dog("Buddy")
+# print(dog.name + " says " + dog.speak())
+# cat = Cat("Whiskers")
+# print(cat.name + " says " + cat.speak())
+
+# polymorphism example - same method name but different behavior in different classes
+
+# class Shape:
+#     def area(self):
+#         return 0
+    
+# class Circle(Shape):
+#     def __init__(self, radius):
+#         self.radius = radius
+
+#     def area(self):
+#         return 3.14 * self.radius ** 2
+# class Rectangle(Shape):
+#     def __init__(self, width, height):
+#         self.width = width
+#         self.height = height
+
+#     def area(self):
+#         return self.width * self.height
+    
+# circle = Circle(5)
+# print("Area of circle: " + str(circle.area()))
+# rectangle = Rectangle(4, 6)
+# print("Area of rectangle: " + str(rectangle.area()))    
+
+# encapsulation example - restricting access to some components using private variables and methods
+
+# class BankAccount:
+#     def __init__(self, owner, balance=0):
+#         self.owner = owner
+#         self.__balance = balance # private variable
+
+#     def deposit(self, amount):
+#         if amount > 0:
+#             self.__balance += amount
+#             print(f"Deposited {amount}. New balance: {self.__balance}")
+#         else:
+#             print("Deposit amount must be positive.")
+
+#     def withdraw(self, amount):
+#         if 0 < amount <= self.__balance:
+#             self.__balance -= amount
+#             print(f"Withdrew {amount}. New balance: {self.__balance}")
+#         else:
+#             print("Invalid withdrawal amount or insufficient funds.")
+
+#     def get_balance(self):
+#         return self.__balance   
+    
+# account = BankAccount("Alice", 1000)
+# account.deposit(500)
+# account.withdraw(200)
+# print("Current balance: " + str(account.get_balance()))
+
+#abstraction example - hiding complex implementation details and showing only essential features
+# difference between abstracction and encapsulation in layman is that abstraction focuses on hiding complexity and showing only essential features, while encapsulation focuses on bundling data and methods together and restricting access to some components.
+
+#abstrcation example
+
+# from abc import ABC, abstractmethod
+# class Vehicle(ABC):
+#     @abstractmethod
+#     def start_engine(self):
+#         pass
+
+# class Car(Vehicle):
+#     def start_engine(self):
+#         return "Car engine started."
+# class Motorcycle(Vehicle):
+#     def start_engine(self):
+#         return "Motorcycle engine started."
+# car = Car()
+# print(car.start_engine())
+# motorcycle = Motorcycle()
+# print(motorcycle.start_engine())
+
+# attributes and types of attributes - instance attributes, class attributes, static attributes
+# lets do example of class attributes and instance attributes
+
+# class Employee:
+#     company_name = "Tech Solutions" # class attribute
+#     def __init__(self, name, position):
+#         self.name = name # instance attribute
+#         self.position = position
+# employee1 = Employee("Alice", "Software Engineer")
+# employee2 = Employee("Bob", "Data Scientist")
+
+# static attribute example
+
+# class MathUtils:
+#     pi = 3.14 # static attribute
+
+#     @staticmethod
+#     def area_of_circle(radius):
+#         return MathUtils.pi * radius ** 2   
+# print("Area of circle with radius 5: " + str(MathUtils.area_of_circle(5)))
+
+# method types - instance method, class method, static method
+
+# # instance method example
+
+# class person:
+#     def __init__(self, name):
+#         self.name = name
+
+#     def instance_method(self):
+#         return f"Hello, my name is {self.name}."    
+    
+# person1 = person("Alice")
+# print(person1.instance_method())
+
+# class method example
+
+class Employee:
+    company_name = "Tech Solutions" # class attribute
+    def __init__(self, name, position):
+        self.name = name # instance attribute
+        self.position = position
+    @classmethod
+    def change_company_name(cls, new_name):
+        cls.company_name = new_name
+
+employee1 = Employee("Alice", "Software Engineer")
+employee2 = Employee("Bob", "Data Scientist")
+print("Company name before change: " + Employee.company_name)
+Employee.change_company_name("Innovative Tech")
+print("Company name after change: " + Employee.company_name)
+
+
 
 
   
