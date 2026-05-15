@@ -68,19 +68,14 @@ student_id in orders is a Foreign Key
 SQL:
 CREATE TABLE orders (    order_id INT,    student_id INT,    FOREIGN KEY (student_id)    REFERENCES students(student_id));
 
-Primary Key vs Foreign Key
-Primary KeyForeign KeyUniquely identifies rowCreates relationshipCannot contain NULLCan contain NULLOne per tableMultiple allowedUniqueDuplicate values allowed
+#Primary Key vs Foreign Key
+| Primary Key             | Foreign Key              |
+| ----------------------- | ------------------------ |
+| Uniquely identifies row | Creates relationship     |
+| Cannot contain NULL     | Can contain NULL         |
+| One per table           | Multiple allowed         |
+| Unique                  | Duplicate values allowed |
 
-# 3. Difference Between WHERE and HAVING
-WHEREHAVINGFilters rows before groupingFilters groups after groupingUsed with SELECTUsed with GROUP BYCannot use aggregate functionsCan use aggregate functions
-
-WHERE Example
-SELECT * FROM employeesWHERE salary > 50000;
-Filters individual rows.
-
-HAVING Example
-SELECT department, COUNT(*)FROM employeesGROUP BY departmentHAVING COUNT(*) > 5;
-Filters grouped data.
 
 # 4. What is a Subquery?
 A Subquery is a query inside another query.
@@ -107,8 +102,12 @@ Executes repeatedly
 
 
 
-Difference Between Subquery and Correlated Subquery
-SubqueryCorrelated SubqueryRuns onceRuns for each rowIndependentDepends on outer queryFasterUsually slower
+# Difference Between Subquery and Correlated Subquery
+| Subquery    | Correlated Subquery    |
+| ----------- | ---------------------- |
+| Runs once   | Runs for each row      |
+| Independent | Depends on outer query |
+| Faster      | Usually slower         |
 
 # 6. What is Indexing?
 Indexing improves database search speed.
@@ -149,7 +148,16 @@ INSERT/UPDATE may become slower
 
 
 # 7. Difference Between MSSQL, MySQL, and MongoDB
-FeatureMSSQLMySQLMongoDBTypeRelational DBRelational DBNoSQL DBCompanyMicrosoftOracleMongoDB IncData FormatTablesTablesJSON-like documentsSchemaFixedFixedFlexibleLanguageSQLSQLBSON/JSONBest ForEnterprise appsWeb appsBig/unstructured dataOpen SourceLimitedYesYesRelationshipsStrongStrongWeak
+| Feature       | MSSQL           | MySQL         | MongoDB               |
+| ------------- | --------------- | ------------- | --------------------- |
+| Type          | Relational DB   | Relational DB | NoSQL DB              |
+| Company       | Microsoft       | Oracle        | MongoDB Inc           |
+| Data Format   | Tables          | Tables        | JSON-like documents   |
+| Schema        | Fixed           | Fixed         | Flexible              |
+| Language      | SQL             | SQL           | BSON/JSON             |
+| Best For      | Enterprise apps | Web apps      | Big/unstructured data |
+| Open Source   | Limited         | Yes           | Yes                   |
+| Relationships | Strong          | Strong        | Weak                  |
 
 Example Data Storage
 MySQL / MSSQL
@@ -159,10 +167,24 @@ MongoDB
 {  "id": 1,  "name": "Rahul"}
 
 When to Use What?
-DatabaseBest UseMSSQLLarge enterprise systemsMySQLWebsites and applicationsMongoDBFlexible and large-scale apps
+| Database | Best Use                      |
+| -------- | ----------------------------- |
+| MSSQL    | Large enterprise systems      |
+| MySQL    | Websites and applications     |
+| MongoDB  | Flexible and large-scale apps |
 
 Quick Summary
-ConceptMeaningPrimary KeyUnique identifierForeign KeyConnects tablesWHEREFilters rowsHAVINGFilters grouped dataSubqueryQuery inside queryCorrelated SubqueryDepends on outer queryIndexingSpeeds up searchingMySQLRelational DBMongoDBNoSQL DB
+| Concept             | Meaning                |
+| ------------------- | ---------------------- |
+| Primary Key         | Unique identifier      |
+| Foreign Key         | Connects tables        |
+| WHERE               | Filters rows           |
+| HAVING              | Filters grouped data   |
+| Subquery            | Query inside query     |
+| Correlated Subquery | Depends on outer query |
+| Indexing            | Speeds up searching    |
+| MySQL               | Relational DB          |
+| MongoDB             | NoSQL DB               |
 
 
 
