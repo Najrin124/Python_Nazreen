@@ -467,6 +467,75 @@ CREATE TABLE departments (
     dept_id INT PRIMARY KEY AUTO_INCREMENT,
     dept_name VARCHAR(100) NOT NULL
 );
+
+
+
+# 1️⃣ What is a Composite Index?
+A Composite Index is an index created on multiple columns together.
+
+Syntax
+CREATE INDEX index_nameON table_name(column1, column2);
+
+Example
+CREATE INDEX idx_salary_deptON employees(salary, dept_id);
+This index stores:
+salary + dept_id together
+
+Why Use Composite Index?
+Useful when queries use multiple columns:
+SELECT * FROM employeesWHERE salary > 60000AND dept_id = 2;
+Instead of searching separately:
+
+
+salary
+
+
+dept_id
+
+# 3️⃣ What is a Covering Index?
+
+A Covering Index contains all columns needed by a query.
+
+MySQL can answer query directly from index without accessing actual table.
+
+Create Index
+CREATE INDEX idx_coveringON employees(salary, emp_name);
+
+Query
+SELECT emp_name, salaryFROM employeesWHERE salary > 60000;
+
+Why is it Fast?
+Because query needs:
+
+
+salary
+
+
+emp_name
+
+
+Both already exist inside index.
+MySQL avoids:
+Extra table lookup
+This improves performance significantly.
+
+Real-Life Example 📚
+Instead of:
+Going to library shelves
+You already have all information in the catalog it
+
+# 2️⃣ What is Optimization?
+Optimization means improving query performance and reducing execution time.
+
+# Difference Between Normal Index and Covering Index
+
+| Normal Index              | Covering Index           |
+| ------------------------- | ------------------------ |
+| Helps locate rows         | Contains all needed data |
+| Table lookup still needed | No table lookup needed   |
+| Faster                    | Much faster              |
+
+
 # Important Interview Concepts
 | Concept         | Meaning                          |
 | --------------- | -------------------------------- |
@@ -479,8 +548,29 @@ CREATE TABLE departments (
 | Full Table Scan | Scans all rows                   |
 | Range Scan      | Efficient indexed search         |
 
+| Technique          | Purpose                    |
+| ------------------ | -------------------------- |
+| Indexing           | Faster searching           |
+| Query optimization | Better SQL writing         |
+| Proper joins       | Efficient table connection |
+| Avoid SELECT *     | Fetch only needed columns  |
+| Use WHERE          | Reduce scanned rows        |
+| Normalization      | Better data structure      |
+
+-- # Quick Summary
+| Concept         | Meaning                          |
+| --------------- | -------------------------------- |
+| Composite Index | Index on multiple columns        |
+| Optimization    | Improving query performance      |
+| Covering Index  | Query satisfied using only index |
 
 
+--- # Simple Memory Trick
+| Concept         | Easy Meaning                  |
+| --------------- | ----------------------------- |
+| Composite Index | Multiple-column shortcut      |
+| Optimization    | Making query faster           |
+| Covering Index  | Everything available in index |
 
 
 
