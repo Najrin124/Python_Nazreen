@@ -23,6 +23,153 @@ INSERT INTO students VALUES (1, 'John', 20);
 | One database can have multiple schemas   | Schema belongs to one database        |
 
 
+# 1. What is a Primary Key?
+A Primary Key is a column that uniquely identifies each row in a table.
+Features
+
+
+Unique values
+
+
+Cannot be NULL
+
+
+One primary key per table
+
+
+
+Example
+Students Table
+student_idname1Rahul2Aman
+Here:
+
+
+student_id is the Primary Key
+
+
+SQL:
+CREATE TABLE students (    student_id INT PRIMARY KEY,    name VARCHAR(50));
+
+# 2. What is a Foreign Key?
+A Foreign Key is a column that creates a relationship between two tables.
+It refers to the primary key of another table.
+
+Example
+Students Table
+student_idname1Rahul
+Orders Table
+order_idstudent_id1011
+Here:
+
+
+student_id in orders is a Foreign Key
+
+
+SQL:
+CREATE TABLE orders (    order_id INT,    student_id INT,    FOREIGN KEY (student_id)    REFERENCES students(student_id));
+
+Primary Key vs Foreign Key
+Primary KeyForeign KeyUniquely identifies rowCreates relationshipCannot contain NULLCan contain NULLOne per tableMultiple allowedUniqueDuplicate values allowed
+
+# 3. Difference Between WHERE and HAVING
+WHEREHAVINGFilters rows before groupingFilters groups after groupingUsed with SELECTUsed with GROUP BYCannot use aggregate functionsCan use aggregate functions
+
+WHERE Example
+SELECT * FROM employeesWHERE salary > 50000;
+Filters individual rows.
+
+HAVING Example
+SELECT department, COUNT(*)FROM employeesGROUP BY departmentHAVING COUNT(*) > 5;
+Filters grouped data.
+
+# 4. What is a Subquery?
+A Subquery is a query inside another query.
+
+Example
+SELECT nameFROM employeesWHERE salary > (    SELECT AVG(salary)    FROM employees);
+Inner query:
+SELECT AVG(salary) FROM employees
+Outer query uses that result.
+
+# 5. What is a Correlated Subquery?
+A Correlated Subquery depends on the outer query.
+It runs once for each row of the outer query.
+
+Example
+SELECT e1.nameFROM employees e1WHERE salary > (    SELECT AVG(salary)    FROM employees e2    WHERE e1.department = e2.department);
+Here:
+
+
+Inner query depends on outer query (e1.department)
+
+
+Executes repeatedly
+
+
+
+Difference Between Subquery and Correlated Subquery
+SubqueryCorrelated SubqueryRuns onceRuns for each rowIndependentDepends on outer queryFasterUsually slower
+
+# 6. What is Indexing?
+Indexing improves database search speed.
+Like an index in a book:
+
+
+Without index → search every page
+
+
+With index → quickly find page
+
+
+
+Example
+CREATE INDEX idx_nameON students(name);
+
+Advantages of Indexing
+
+
+Faster SELECT queries
+
+
+Faster searching
+
+
+Improves performance
+
+
+
+Disadvantages
+
+
+Takes extra storage
+
+
+INSERT/UPDATE may become slower
+
+
+
+# 7. Difference Between MSSQL, MySQL, and MongoDB
+FeatureMSSQLMySQLMongoDBTypeRelational DBRelational DBNoSQL DBCompanyMicrosoftOracleMongoDB IncData FormatTablesTablesJSON-like documentsSchemaFixedFixedFlexibleLanguageSQLSQLBSON/JSONBest ForEnterprise appsWeb appsBig/unstructured dataOpen SourceLimitedYesYesRelationshipsStrongStrongWeak
+
+Example Data Storage
+MySQL / MSSQL
+id | name1  | Rahul
+
+MongoDB
+{  "id": 1,  "name": "Rahul"}
+
+When to Use What?
+DatabaseBest UseMSSQLLarge enterprise systemsMySQLWebsites and applicationsMongoDBFlexible and large-scale apps
+
+Quick Summary
+ConceptMeaningPrimary KeyUnique identifierForeign KeyConnects tablesWHEREFilters rowsHAVINGFilters grouped dataSubqueryQuery inside queryCorrelated SubqueryDepends on outer queryIndexingSpeeds up searchingMySQLRelational DBMongoDBNoSQL DB
+
+
+
+
+
+
+
 
 ## SQL QUERY
 ## use anu_db;
