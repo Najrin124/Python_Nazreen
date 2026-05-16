@@ -64,3 +64,23 @@ patch - patches the data
 delete - delete dataa
 
 postman - api testing tool
+
+day 2
+
+understand http methods - get, post, put, patch, delete
+dynamic routes
+url parameters - means giving dynamic value sin url - we can pass the variable as parameters in url from the fucntion
+query parameters - used for search, filtering, pagination , sorting, etc
+request object - it contains client data, which is used for query paarameetrs, forms data, json body, headers, files, etc
+get apis
+post apis
+json request body - data sent from client to backend
+sending data from postman
+json request and response
+status codes
+
+200 - success
+201 - created
+400 - bad request
+404 - not found
+500 - server error
