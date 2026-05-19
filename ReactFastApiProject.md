@@ -5,7 +5,9 @@
 <img width="1349" height="704" alt="Screenshot from 2026-05-19 13-58-45" src="https://github.com/user-attachments/assets/ae763454-0dea-4da0-a512-2484e4ed8835" />
 
 
-file:///home/mistu/Pictures/Screenshots/Screenshot%20from%202026-05-19%2013-57-22.png
+
+<img width="1349" height="704" alt="Screenshot from 2026-05-19 14-01-02" src="https://github.com/user-attachments/assets/facd445a-dd8b-4912-a69f-d652ddb3e77b" />
+
 
 
 <img width="1349" height="704" alt="Screenshot from 2026-05-19 14-03-35" src="https://github.com/user-attachments/assets/78d01be0-0ae2-479c-89ec-7c46e84ee21c" />
