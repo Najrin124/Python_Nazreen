@@ -8,4 +8,8 @@
 
 ![Uploading Screenshot from 2026-05-19 14-01-02.png…]()
 
+<img width="1349" height="704" alt="Screenshot from 2026-05-19 14-03-35" src="https://github.com/user-attachments/assets/78d01be0-0ae2-479c-89ec-7c46e84ee21c" />
 
+<img width="1349" height="704" alt="Screenshot from 2026-05-19 14-05-00" src="https://github.com/user-attachments/assets/98cf6f00-4c64-436f-9100-677a7e01c9b6" />
+
+<img width="1349" height="704" alt="Screenshot from 2026-05-19 14-09-25" src="https://github.com/user-attachments/assets/43e1b0b4-5ee3-4946-b458-4f506d123ec4" />
