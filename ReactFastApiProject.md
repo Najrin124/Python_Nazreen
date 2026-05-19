@@ -44,4 +44,3 @@ file:///home/mistu/Pictures/Screenshots/Screenshot%20from%202026-05-19%2014-18-1
 <img width="1346" height="690" alt="Screenshot from 2026-05-19 14-33-54" src="https://github.com/user-attachments/assets/324fc282-52cd-4be5-9936-f3623526c388" />
 
 
-<img width="1346" height="690" alt="Screenshot from 2026-05-19 14-33-54" src="https://github.com/user-attachments/assets/e0de81ce-f899-4b6b-8132-7c8c24d7aef9" />
