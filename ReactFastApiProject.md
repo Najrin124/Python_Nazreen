@@ -32,5 +32,16 @@ file:///home/mistu/Pictures/Screenshots/Screenshot%20from%202026-05-19%2014-18-1
 <img width="1346" height="690" alt="Screenshot from 2026-05-19 14-29-12" src="https://github.com/user-attachments/assets/2e258404-460f-4ec8-801c-f1c186faab31" />
 
 
-<img width="1346" height="690" alt="Screenshot from 2026-05-19 14-30-35" src="https://github.com/user-attachments/assets/d6975d66-6cf7-48a3-8c5b-0c8eb5e0be64" />
 
+<img width="1346" height="690" alt="Screenshot from 2026-05-19 14-30-35" src="https://github.com/user-attachments/assets/724cb5d4-0826-4f3a-841a-afbcfa258bdd" />
+
+
+
+<img width="1346" height="690" alt="Screenshot from 2026-05-19 14-31-37" src="https://github.com/user-attachments/assets/51ad2622-7d00-4c78-989d-c827878419e4" />
+
+<img width="1346" height="690" alt="Screenshot from 2026-05-19 14-32-56" src="https://github.com/user-attachments/assets/413140ce-0389-4e82-b389-230bf0c5e40f" />
+
+<img width="1346" height="690" alt="Screenshot from 2026-05-19 14-33-54" src="https://github.com/user-attachments/assets/324fc282-52cd-4be5-9936-f3623526c388" />
+
+
+<img width="1346" height="690" alt="Screenshot from 2026-05-19 14-33-54" src="https://github.com/user-attachments/assets/e0de81ce-f899-4b6b-8132-7c8c24d7aef9" />
