@@ -89,6 +89,428 @@ status codes
 
 
 
+Claim offer
+introduction to apis and flask
+
+understand what api is understand how abckedna nd frontend communicates install flask in vs code create our first flask server create our first api test api in brwoser and postman understand routes, request, response and json - javascript object notation
+
+restaurant - full stack application front end - menu and waiter(this is what customer sees) backend - kitchen(where actual work happens) database - storage room/fridge
+
+backend devlopment handles
+
+login registration saving data fetching data calcualtions authentication api's
+
+API - application programming interface
+
+it act as mediator between 2 systems
+
+flask - light weight python framework used to build
+
+APIs websites backend services
+
+why flask
+
+simple light weight python based flexible
+
+local host - your own computer act as a server
+
+route - means url path
+
+/ - home page /about - about /contact - contact page
+
+json - javascrupt object notation - its like a dictionary format
+
+http methods
+
+get - fetch data post - send data put - update data patch - patches the data delete - delete dataa
+
+postman - api testing tool
+
+day 2
+
+
+200 - success 201 - created 400 - bad request 404 - not found 500 - server error
+
+Introduction to APIs and Flask
+What is an API?
+API stands for Application Programming Interface.
+
+An API acts like a mediator between two systems so they can communicate with each other.
+
+Example: Restaurant Analogy 🍽️
+Think of a full-stack application like a restaurant:
+
+Frontend → Menu + Waiter
+(What customer sees)
+
+Backend → Kitchen
+(Where actual work happens)
+
+Database → Storage room / Fridge
+(Where data is stored)
+
+The customer gives an order to the waiter → waiter sends it to kitchen → kitchen prepares food → waiter brings response back.
+
+Similarly:
+
+Frontend → API → Backend → Database
+
+Backend Development Handles
+Backend development is responsible for:
+
+Login & Registration
+
+Saving data
+
+Fetching data
+
+Calculations
+
+Authentication
+
+APIs
+
+What is Flask?
+Flask is a lightweight Python framework used to build:
+
+APIs
+
+Websites
+
+Backend services
+
+Why Flask?
+Simple
+
+Lightweight
+
+Python-based
+
+Flexible
+
+Easy for beginners
+
+Localhost
+Localhost means your own computer acts as a server.
+
+Example:
+
+http://127.0.0.1:5000
+or
+
+localhost:5000
+Route in Flask
+A route means a URL path.
+
+Examples:
+
+/          -> Home page
+/about     -> About page
+/contact   -> Contact page
+JSON
+JSON stands for JavaScript Object Notation.
+
+It is a dictionary-like format used to send and receive data.
+
+Example:
+
+{
+    "name": "Rahul",
+    "age": 21
+}
+HTTP Methods
+Method	Purpose
+GET	Fetch data
+POST	Send data
+PUT	Update entire data
+PATCH	Update partial data
+DELETE	Delete data
+Installing Flask in VS Code
+Step 1: Install Python
+Install Python from:
+
+Python Official Website
+
+Step 2: Install VS Code
+VS Code Official Website
+
+Install Python extension in VS Code.
+
+Step 3: Create Project Folder
+Example:
+
+flask_project
+Open it in VS Code.
+
+Step 4: Create Virtual Environment
+Open terminal in VS Code:
+
+python -m venv venv
+Activate virtual environment:
+
+Windows
+venv\Scripts\activate
+Mac/Linux
+source venv/bin/activate
+Step 5: Install Flask
+pip install flask
+Check installation:
+
+pip list
+Create Your First Flask Server
+Create a file named:
+
+app.py
+Add this code:
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello World"
+
+if __name__ == '__main__':
+    app.run(debug=True)
+Run Flask Server
+In terminal:
+
+python app.py
+Output:
+
+Running on http://127.0.0.1:5000
+Open browser and visit:
+
+http://127.0.0.1:5000
+You will see:
+
+Hello World
+Create Your First API
+Modify code:
+
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/api')
+def api():
+    return jsonify({
+        "message": "My First API",
+        "status": "success"
+    })
+
+if __name__ == '__main__':
+    app.run(debug=True)
+Test API in Browser
+Open:
+
+http://127.0.0.1:5000/api
+Response:
+
+{
+    "message": "My First API",
+    "status": "success"
+}
+Test API Using Postman
+Postman is an API testing tool.
+
+Steps
+Open Postman
+
+Select GET method
+
+Enter URL:
+
+http://127.0.0.1:5000/api
+Click Send
+
+You will get JSON response.
+
+Understanding Request and Response
+Request
+Data sent from client to server.
+
+Example:
+
+Form data
+
+JSON body
+
+Query parameters
+
+Headers
+
+Files
+
+Response
+Data sent back from server to client.
+
+Example:
+
+{
+    "message": "Success"
+}
+Day 2 Concepts
+Dynamic Routes (URL Parameters)
+Dynamic routes allow values to be passed in URL.
+
+Example:
+
+@app.route('/user/<name>')
+def user(name):
+    return f"Hello {name}"
+URL:
+
+http://127.0.0.1:5000/user/rahul
+Output:
+
+Hello rahul
+Query Parameters
+Used for:
+
+Search
+
+Filtering
+
+Pagination
+
+Sorting
+
+Example URL:
+
+/products?category=mobile
+Flask Example:
+
+from flask import request
+
+@app.route('/search')
+def search():
+    name = request.args.get('name')
+    return f"Searching for {name}"
+URL:
+
+http://127.0.0.1:5000/search?name=laptop
+Request Object
+The request object contains client data such as:
+
+Query parameters
+
+Form data
+
+JSON body
+
+Headers
+
+Files
+
+Example:
+
+from flask import request
+
+@app.route('/data')
+def data():
+    return request.args.get('name')
+GET API Example
+@app.route('/students', methods=['GET'])
+def students():
+    return jsonify({
+        "students": ["Rahul", "Ankit", "Priya"]
+    })
+POST API Example
+from flask import request
+
+@app.route('/add-user', methods=['POST'])
+def add_user():
+    data = request.get_json()
+
+    return jsonify({
+        "message": "User Added",
+        "data": data
+    })
+JSON Request Body
+Data sent from frontend/client to backend.
+
+Example JSON body in Postman:
+
+{
+    "name": "Rahul",
+    "age": 21
+}
+Sending Data from Postman
+Steps
+Select POST method
+
+Go to Body
+
+Select raw
+
+Select JSON
+
+Add JSON body
+
+Click Send
+
+Status Codes
+Code	Meaning
+200	Success
+201	Created
+400	Bad Request
+404	Not Found
+500	Server Error
+Complete Beginner Flask API Example
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+
+# Home Route
+@app.route('/')
+def home():
+    return "Welcome to Flask API"
+
+# GET API
+@app.route('/students', methods=['GET'])
+def get_students():
+    students = ["Rahul", "Priya", "Aman"]
+
+    return jsonify({
+        "students": students
+    }), 200
+
+# POST API
+@app.route('/add-student', methods=['POST'])
+def add_student():
+    data = request.get_json()
+
+    return jsonify({
+        "message": "Student Added",
+        "student": data
+    }), 201
+
+# Dynamic Route
+@app.route('/user/<name>')
+def user(name):
+    return f"Hello {name}"
+
+# Query Parameter
+@app.route('/search')
+def search():
+    product = request.args.get('product')
+
+    return jsonify({
+        "search": product
+    })
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+
+
+
+
+
+
 ---- - 1. What is an API?
 
 Answer:
