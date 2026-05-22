@@ -1,21 +1,21 @@
---- # variables - use to store the data
+--- variables - use to store the data
 
--- # data types
+-- data types
 v_str = "najrin"
 v_int = 5
 v_float = 9.0
 v_bool = True
 
--- # print(v_str + " " + str(v_int) + " "+ str(v_bool))
--- # print(f"{v_str} {v_int} and {v_bool}") # formated string
+-- print(v_str + " " + str(v_int) + " "+ str(v_bool))
+-- print(f"{v_str} {v_int} and {v_bool}") # formated string
 
 
--- # list variable - it is ordered set where you can store multiple  data types values
+--  list variable - it is ordered set where you can store multiple  data types values
 
--- # Tuple - A tuple in Python is an ordered, immutable collection of elements. It can store multiple items of different data types, and once created, its values cannot be changed.
+-- Tuple - A tuple in Python is an ordered, immutable collection of elements. It can store multiple items of different data types, and once created, its values cannot be changed.
 
 
-# Key points you can mention:
+Key points you can mention:
   Ordered → Elements have a fixed position
   Immutable → Cannot modify, add, or remove elements after creation
   Allows duplicates → (1, 1, 2) is valid
@@ -24,16 +24,16 @@ v_bool = True
 
 --- # # dictionary - it stores dta in key value pairs
 
--- # dic_1 = {"name": "najrin", "age": 26, "location": "kolkata"}
--- # print(dic_1)
-# print(dic_1["age"])
-# print(dic_1.keys())
-# print(dic_1.values())
-# print(dic_1.items())
+-- dic_1 = {"name": "najrin", "age": 26, "location": "kolkata"}
+--  print(dic_1)
+ print(dic_1["age"])
+ print(dic_1.keys())
+ print(dic_1.values())
+ print(dic_1.items())
 
-# set - unique unordered list of items
+---- set - unique unordered list of items
 
-# set_1 = {1,2,3,3,3,3,4,5,6}
+ set_1 = {1,2,3,3,3,3,4,5,6}
 # set_2 = {5,7,8,9}
 # print(set_1)
 
@@ -509,7 +509,105 @@ print("Company name before change: " + Employee.company_name)
 Employee.change_company_name("Innovative Tech")
 print("Company name after change: " + Employee.company_name)
 
+--- 1. NumPy
+NumPy is a Python library used for:
 
+
+Numerical calculations
+
+
+Arrays
+
+
+Matrix operations
+
+
+Scientific computing
+
+
+Install:
+pip install numpy
+Example:
+import numpy as nparr = np.array([1, 2, 3, 4])print(arr)print(arr + 10)
+Output:
+[1 2 3 4][11 12 13 14]
+Important NumPy Functions
+np.array()np.zeros()np.ones()np.arange()np.mean()np.sum()np.max()np.min()
+Example:
+import numpy as npnumbers = np.array([10, 20, 30])print("Sum:", np.sum(numbers))print("Average:", np.mean(numbers))
+
+2. Pandas
+pandas is used for:
+
+
+Data analysis
+
+
+Working with Excel/CSV files
+
+
+Tables and datasets
+
+
+Install:
+pip install pandas
+Example:
+import pandas as pddata = {    "Name": ["John", "Alice"],    "Age": [22, 25]}df = pd.DataFrame(data)print(df)
+Output:
+    Name  Age0   John   221  Alice   25
+Read CSV File
+import pandas as pddf = pd.read_csv("students.csv")print(df)
+Important Pandas Functions
+head()tail()info()describe()read_csv()DataFrame()
+
+3. math Module
+The Python math module is used for mathematical operations.
+No installation needed.
+Example:
+import mathprint(math.sqrt(25))print(math.factorial(5))print(math.pi)
+Output:
+5.01203.141592653589793
+Common Functions
+math.sqrt()math.ceil()math.floor()math.factorial()math.pimath.pow()
+Example:
+import mathprint(math.ceil(4.2))print(math.floor(4.9))
+Output:
+54
+
+4. random Module
+The Python random module is used to generate random values.
+Example:
+import randomprint(random.randint(1, 10))
+Output:
+7
+Common Functions
+random.randint()random.choice()random.random()random.shuffle()
+Example:
+import randomcolors = ["red", "blue", "green"]print(random.choice(colors))
+Example:
+import randomnumbers = [1, 2, 3, 4, 5]random.shuffle(numbers)print(numbers)
+
+Quick Difference
+ModuleUsed ForNumPyArrays & numerical computingPandasData analysis & tablesmathMathematical calculationsrandomRandom number generation
+
+Interview Question Example
+Q: Difference between NumPy array and Python list?
+Answer:
+
+
+NumPy arrays are faster
+
+
+Use less memory
+
+
+Support mathematical operations easily
+
+
+Example:
+import numpy as npa = np.array([1, 2, 3])print(a * 2)
+Output:
+[2 4 6]
 
 
   
