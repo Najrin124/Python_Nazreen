@@ -91,13 +91,12 @@ else:
     print("Not Armstrong")
 
 Output:
-
 Armstrong
-
 🧠 Remember:
-
 % 10 → last digit
 // 10 → remove last digit
+
+
 7. Reverse a Number
 n = 12345
 reverse = 0
@@ -114,6 +113,7 @@ Output:
 54321
 
 🧠 Remember: % 10 gets last digit, // 10 removes it.
+
 
 8. Largest and Second Largest
 Largest
@@ -135,8 +135,8 @@ print(numbers[-2])
 Output:
 
 25
-
 🧠 Remember: sort() → [-1] largest, [-2] second largest.
+
 
 9. Remove Duplicates
 numbers = [1, 2, 2, 3, 4, 4, 5]
@@ -150,6 +150,7 @@ Output:
 [1, 2, 3, 4, 5]
 
 🧠 Remember: set() automatically removes duplicates.
+
 
 10. Character Frequency
 s = "hello"
@@ -170,6 +171,7 @@ Output:
 count[ch] = count.get(ch, 0) + 1
 
 means increase count by 1.
+
 
 11. Find Missing Number
 
@@ -192,10 +194,10 @@ print(missing)
 Output:
 
 4
-
 🧠 Remember:
 
 Expected total − Actual total = Missing number
+
 
 12. Two Sum
 
@@ -214,8 +216,9 @@ Output:
 0 1
 
 Because:
-
 2 + 7 = 9
+
+
 13. Move Zeros to End
 
 Input:
@@ -241,6 +244,7 @@ print(result)
 
 🧠 Remember: First collect non-zero → then add zeros.
 
+
 14. Sort a List
 Ascending
 numbers = [5, 2, 8, 1, 3]
@@ -258,8 +262,9 @@ numbers.sort(reverse=True)
 print(numbers)
 
 Output:
-
 [8, 5, 3, 2, 1]
+
+
 15. Count Vowels
 s = "python programming"
 
@@ -310,8 +315,8 @@ for n in numbers:
 print(duplicates)
 
 Output:
-
 [2, 3]
+
 18. Merge Two Lists
 list1 = [1, 2, 3]
 list2 = [4, 5, 6]
@@ -319,14 +324,15 @@ list2 = [4, 5, 6]
 result = list1 + list2
 
 print(result)
-
 Output:
-
 [1, 2, 3, 4, 5, 6]
+
 Remove duplicates after merging
 result = list(set(list1 + list2))
 
 print(result)
+
+
 19. Linear Search
 
 Linear search checks elements one by one.
