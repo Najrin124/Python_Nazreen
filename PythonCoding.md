@@ -24,7 +24,9 @@ Palindrome
 
 
 3. Check Prime Number
+4. 
 A prime number has only 2 factors: 1 and itself.
+
 n = 7
 
 if n <= 1:
@@ -36,6 +38,7 @@ else:
             break
     else:
         print("Prime")
+        
 
 Output:
 Prime
